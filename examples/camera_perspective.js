@@ -1,4 +1,3 @@
-import './style.css'
 import * as THREE from 'three'
 import Stats from 'three/addons/libs/stats.module.js'
 import { GUI } from 'dat.gui'
@@ -7,8 +6,8 @@ const scene = new THREE.Scene()
 scene.add(new THREE.GridHelper())
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-//camera.position.set(0, 2, 3)
-//camera.lookAt(0, 0.5, 0)
+camera.position.set(0, 2, 3)
+camera.lookAt(0, 0.5, 0)
 
 const renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
@@ -21,7 +20,7 @@ window.addEventListener('resize', () => {
 })
 
 const geometry = new THREE.BoxGeometry()
-const material = new THREE.MeshNormalMaterial({ wireframe: true })
+const material = new THREE.MeshNormalMaterial()
 
 const cube = new THREE.Mesh(geometry, material)
 cube.position.y = 0.5
